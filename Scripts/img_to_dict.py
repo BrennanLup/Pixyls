@@ -1,4 +1,6 @@
 from PIL import Image
+import output_pixel_sheet
+
 
 def count_colors(image):
     width, height = image.size
@@ -14,14 +16,17 @@ def count_colors(image):
 
     return colors
 
+def outputDict(colorDict):
+    for pixel, count in colorDict.items():
+        print(f"Color: {pixel}, Count: {count}")
 # Open the image
 # pixyl_images/pixyl_windows.jpeg
 # frog.jpg
-image = Image.open("flowers.png")
+image = Image.open("../purp.jpeg")
 
 # Count the number of colors
 num_colors = count_colors(image)
- 
-for pixel, count in num_colors.items():
-    print(f"Color: {pixel}, Count: {count}")
+outputDict(num_colors)
+output_pixel_sheet.outputPixelSheet(num_colors)
+
 

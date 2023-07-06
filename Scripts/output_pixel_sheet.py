@@ -24,7 +24,7 @@ def outputWhiteLine(img, width, y):
     for x in range(width):
         img.putpixel((x, y), (255, 255, 255))
 
-def outputPixelSheet(colourDict, height, width):
+def outputPixelSheet(colourDict, height=0, width=22):
     # Calculate height for the image
     rounded_counts = [math.ceil(count / width) * width for count in colourDict.values()]
     image_height = sum(rounded_counts) // width
